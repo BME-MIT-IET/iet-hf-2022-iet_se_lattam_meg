@@ -22,7 +22,7 @@ public class QuickSort {
 		return i + 1;	// return position of the pivot
 	}
 
-	void sort(int arr[], int low, int high) {
+	public void sort(int arr[], int low, int high) {
 		if (low < high) {
 			// after the following function call elemnt at positon pi
 			// is at it's correct poition in the sorted array

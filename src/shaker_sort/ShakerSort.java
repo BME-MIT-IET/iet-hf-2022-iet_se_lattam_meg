@@ -4,7 +4,7 @@ package shaker_sort;
 
 public class ShakerSort {
 
-	static void sort(int[] arr) {
+	public static void sort(int[] arr) {
 		boolean swapped;
 		int llim = 0;
 		int rlim = arr.length - 1;

@@ -4,7 +4,7 @@ package gnome_sort;
  
 import java.util.Arrays;
 public class GnomeSort {
-    private static void gnomeSort(int arr[]) {
+    public static void gnomeSort(int arr[]) {
         int index = 0;
         while (index < arr.length) {
             if ((index == 0) || (arr[index - 1] <= arr[index])) {

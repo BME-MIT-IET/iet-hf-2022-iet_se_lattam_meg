@@ -9,7 +9,7 @@ public class SlowSort {
 	 * @param i        Recursion leftmost index
 	 * @param j        Recursion rightmost index
 	 */
-	static void slowSort(int arr[], int i, int j)
+	public static void slowSort(int arr[], int i, int j)
 	{
 	    if (i >= j) { // Return on base case
 	    	return;

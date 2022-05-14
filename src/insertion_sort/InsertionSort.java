@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 // Part of Cosmos by OpenGenus Foundation
 public class InsertionSort {       
-    void sort(int arr[]) {      // sort() performs the insertion sort on the array which is passed as argument from main() 
+    public void sort(int arr[]) {      // sort() performs the insertion sort on the array which is passed as argument from main() 
         for (int i = 0; i < arr.length; ++i) {
             for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {   // swapping of elements if j-1th element is greater than jth element 
                 int temp = arr[j];
