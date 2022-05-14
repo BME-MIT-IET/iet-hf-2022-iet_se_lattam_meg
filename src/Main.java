@@ -33,7 +33,10 @@ public class Main {
 	}
 
 	private static void printOptions() {
-
+		System.out.println("Enter a number to select an algorithm");
+		System.out.println("1 - Bead");
+		System.out.println("2 - Bubble");
+		System.out.println("3 - Circle");
 	}
 
 	private static void printInstructions() {
