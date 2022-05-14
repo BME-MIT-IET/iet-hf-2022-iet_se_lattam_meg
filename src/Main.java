@@ -40,7 +40,8 @@ public class Main {
 	}
 
 	private static void printInstructions() {
-
+		System.out.println("Enter the numbers you want to sort, separated by enters");
+		System.out.println("Enter an empty line to start sorting");
 	}
 
 	private static Integer readAlg() {
