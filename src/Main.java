@@ -51,7 +51,18 @@ public class Main {
 	}
 
 	private static Integer readAlg() {
-		return 0;
+		Scanner in = new Scanner(System.in);
+		String s = in.nextLine();
+
+		try {
+			Integer number = Integer.parseInt(s);
+			return number;
+		}
+		catch (NumberFormatException nfe) {
+			System.out.println("Please add a number\n");
+			throw nfe;
+		}
+	
 	}
 
 	private static int[] readNumbers() {
