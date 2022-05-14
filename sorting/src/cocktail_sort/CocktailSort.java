@@ -1,4 +1,4 @@
-class CocktailSort {
+public class CocktailSort {
     /** A method to sort the array. The array will be sorted inplace. 
     * @author KanakalathaVemuru (https://github.com/KanakalathaVemuru)
     * @param array an array which has to be sorted

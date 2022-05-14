@@ -3,7 +3,7 @@
 import java.util.*;
 import java.lang.*;
  
-class CycleSort
+public class CycleSort
 {
 // Function sort the array using Cycle sort
     public static void cycleSort (int arr[], int n)

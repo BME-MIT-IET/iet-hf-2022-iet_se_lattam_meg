@@ -1,6 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-public class Tree {
+public class TreeSortAlg {
 
     public static void main(String[] args) {
         TreeSort myTree;

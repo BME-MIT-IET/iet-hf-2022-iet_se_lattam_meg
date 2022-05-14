@@ -7,7 +7,7 @@
  *
  * Part of Cosmos by OpenGenus Foundation
  */
-class SelectionSort {
+public class SelectionSort {
 
   /**
    * Example usage.
