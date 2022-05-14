@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class BubbleSort {
 
-	static void bubbleSort(int[] array) {
+	public static void bubbleSort(int[] array) {
 		int flag = 1;
 		for (int i = 0; i < array.length - 1; i++) {
 			flag = 1;
