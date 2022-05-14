@@ -32,7 +32,10 @@ public class Main {
 	}
 
 	private static void printNumbers(int[] arr) {
-
+		System.out.println("Sorted:");
+		for(int i=0;i<arr.length;++i) {
+			System.out.println(arr[i]);
+		}
 	}
 
 	private static void printOptions() {
