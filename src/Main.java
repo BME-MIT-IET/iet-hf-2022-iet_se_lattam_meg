@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import bead_sort.BeadSort;
 import bubble_sort.BubbleSort;
 import circle_sort.CircleSort;
@@ -49,6 +52,27 @@ public class Main {
 	}
 
 	private static int[] readNumbers() {
-		return new int[0];
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		Scanner in = new Scanner(System.in);
+		
+		while(in.hasNextLine()) {
+			try {
+				String s = in.nextLine();
+				if(s.equals("")){
+					break;
+				}
+				Integer number = Integer.parseInt(s);
+				array.add(number);
+			}
+			catch (NumberFormatException nfe) {
+				System.out.println("Please enter a number");
+			}
+		}		
+		
+		int[] res = new int[array.size()];
+		for(int i = 0; i < array.size(); i++) {
+			res[i] = array.get(i);
+		}
+		return res;
 	}
 }
