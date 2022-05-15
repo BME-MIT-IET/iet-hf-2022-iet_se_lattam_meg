@@ -138,7 +138,7 @@ public class Main {
 	}
 
 	private static int[] readNumbers() {
-		ArrayList<Integer> array = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		Scanner in = new Scanner(System.in);
 
 		while (in.hasNextLine()) {
@@ -148,16 +148,12 @@ public class Main {
 					break;
 				}
 				Integer number = Integer.parseInt(s);
-				array.add(number);
+				list.add(number);
 			} catch (NumberFormatException nfe) {
 				System.out.println("Please enter a number");
 			}
 		}
 
-		int[] res = new int[array.size()];
-		for (int i = 0; i < array.size(); i++) {
-			res[i] = array.get(i);
-		}
-		return res;
+        return list.stream().mapToInt(i -> i).toArray();
 	}
 }
