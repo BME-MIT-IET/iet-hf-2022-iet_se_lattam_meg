@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany.application1</groupId>
-	<artifactId>IET-HF-2022-IET_SE_LATTAM_MEG</artifactId>
+	<groupId>application</groupId>
+	<artifactId>application</artifactId>
 	<version>1</version>
 
 	<dependencies>
