@@ -1,4 +1,4 @@
-package application.bubble_sort;
+package main.java.application.bubble_sort;
 
 /* Part of Cosmos by OpenGenus Foundation */
 

@@ -1,4 +1,4 @@
-package application.gnome_sort;
+package main.java.application.gnome_sort;
 
 // Java Program to implement Gnome Sort
  

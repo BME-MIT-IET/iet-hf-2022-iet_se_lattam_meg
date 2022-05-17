@@ -1,4 +1,4 @@
-package application.circle_sort;
+package main.java.application.circle_sort;
 
 /* Part of Cosmos by OpenGenus Foundation */
 

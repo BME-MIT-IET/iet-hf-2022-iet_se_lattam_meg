@@ -1,4 +1,4 @@
-package application.heap_sort;
+package main.java.application.heap_sort;
 
 import java.util.*;
 /*
