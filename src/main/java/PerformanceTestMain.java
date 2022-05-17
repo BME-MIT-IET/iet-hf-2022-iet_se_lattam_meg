@@ -1,4 +1,7 @@
 import application.circle_sort.CircleSort;
+import application.cocktail_sort.CocktailSort;
+import application.cycle_sort.CycleSort;
+import application.gnome_sort.GnomeSort;
 
 import java.util.*;
 
@@ -14,7 +17,29 @@ public class PerformanceTestMain {
 
     public static void main(String[] args) {
         inputs = createInputs();
+        beadSortTest();
         bubbleSortTest();
+        circleSortTest();
+        cocktailSortTest();
+        cycleSortTest();
+        gnomeSortTest();
+    }
+
+    private static void beadSortTest() {
+        System.out.println("Bead sort:");
+        tabCount++;
+        ArrayList<int[]> beadSortInputs = copyInputs(inputs);
+        long startTime = System.currentTimeMillis();
+        for (int[] input : beadSortInputs) {
+            beadSort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        runTimes.put("Bead sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        tabCount--;
     }
 
     private static void bubbleSortTest() {
@@ -27,6 +52,74 @@ public class PerformanceTestMain {
         }
         long time = System.currentTimeMillis() - startTime;
         runTimes.put("Bubble sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        tabCount--;
+    }
+
+    private static void circleSortTest() {
+        System.out.println("Circle sort:");
+        tabCount++;
+        ArrayList<int[]> circleSortInputs = copyInputs(inputs);
+        long startTime = System.currentTimeMillis();
+        for (int[] input : circleSortInputs) {
+            CircleSort.Sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        runTimes.put("Circle sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        tabCount--;
+    }
+
+    private static void cocktailSortTest() {
+        System.out.println("Cocktail sort:");
+        tabCount++;
+        ArrayList<int[]> cocktailSortInputs = copyInputs(inputs);
+        long startTime = System.currentTimeMillis();
+        for (int[] input : cocktailSortInputs) {
+            new CocktailSort().sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        runTimes.put("Cocktail sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        tabCount--;
+    }
+
+    private static void cycleSortTest() {
+        System.out.println("Cycle sort:");
+        tabCount++;
+        ArrayList<int[]> cycleSortInputs = copyInputs(inputs);
+        long startTime = System.currentTimeMillis();
+        for (int[] input : cycleSortInputs) {
+            CycleSort.cycleSort(input, input.length);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        runTimes.put("Cycle sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        tabCount--;
+    }
+
+    private static void gnomeSortTest() {
+        System.out.println("Gnome sort:");
+        tabCount++;
+        ArrayList<int[]> gnomeSortInputs = copyInputs(inputs);
+        long startTime = System.currentTimeMillis();
+        for (int[] input : gnomeSortInputs) {
+            GnomeSort.gnomeSort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        runTimes.put("Gnome sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
