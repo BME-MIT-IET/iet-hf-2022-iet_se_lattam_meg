@@ -1,13 +1,4 @@
 # Compiled class file
 *.class
 
-*.iml
-*/.idea/libraries/Gradle*.xml
-*/.idea/libraries/Maven*.xml
-*/.idea/compiler.xml
-*/.idea/misc.xml
-*/.idea/modules.xml
-*/.idea/jarRepositories.xml
-*/target
-
 target
