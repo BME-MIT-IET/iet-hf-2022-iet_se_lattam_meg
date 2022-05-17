@@ -1,4 +1,4 @@
-package application.merge_sort;
+package main.java.application.merge_sort;
 
 /* Java program for Merge Sort */
 // Part of Cosmos by OpenGenus Foundation
@@ -57,7 +57,7 @@ public class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    private void sort(int arr[], int l, int r) {
+    public void sort(int arr[], int l, int r) {
         if (l < r) {
             // Find the middle point
             int m = (l+r)/2;

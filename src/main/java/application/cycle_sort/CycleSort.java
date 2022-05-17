@@ -1,4 +1,4 @@
-package application.cycle_sort;
+package main.java.application.cycle_sort;
 
 // Java program to impleament cycle sort
 // Part of Cosmos by OpenGenus Foundation

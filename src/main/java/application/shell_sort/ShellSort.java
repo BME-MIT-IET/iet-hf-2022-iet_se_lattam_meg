@@ -1,4 +1,4 @@
-package application.shell_sort;
+package main.java.application.shell_sort;
 
 // Java implementation of ShellSort
 // Part of Cosmos by OpenGenus Foundation

@@ -1,8 +1,8 @@
-package application;
+package test.java.application;
 
 import org.junit.jupiter.api.Test;
 
-import application.bubble_sort.BubbleSort;
+import main.java.application.bubble_sort.BubbleSort;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

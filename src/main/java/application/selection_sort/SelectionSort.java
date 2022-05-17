@@ -1,4 +1,4 @@
-package application.selection_sort;
+package main.java.application.selection_sort;
 
 /**
  * Utility class for sorting an array using Selection Sort algorithm. Selection

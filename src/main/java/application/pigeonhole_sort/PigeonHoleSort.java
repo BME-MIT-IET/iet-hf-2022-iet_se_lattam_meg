@@ -1,4 +1,4 @@
-package application.pigeonhole_sort;
+package main.java.application.pigeonhole_sort;
 
 /* Part of Cosmos by OpenGenus Foundation */
 

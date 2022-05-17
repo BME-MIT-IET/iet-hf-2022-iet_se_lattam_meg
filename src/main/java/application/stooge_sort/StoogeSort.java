@@ -1,4 +1,4 @@
-package application.stooge_sort;
+package main.java.application.stooge_sort;
 
 //This is a java program to sort numbers using Stooge Sort
 import java.util.Random;

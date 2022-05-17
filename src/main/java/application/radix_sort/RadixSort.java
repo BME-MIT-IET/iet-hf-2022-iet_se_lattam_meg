@@ -1,4 +1,4 @@
-package application.radix_sort;
+package main.java.application.radix_sort;
 
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.ArrayList;
