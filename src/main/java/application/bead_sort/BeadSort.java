@@ -1,4 +1,4 @@
-package main.java.application.bead_sort;
+package application.bead_sort;
 
 import java.util.Arrays;
 // Part of Cosmos by OpenGenus Foundation

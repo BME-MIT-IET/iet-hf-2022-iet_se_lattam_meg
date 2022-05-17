@@ -1,4 +1,4 @@
-package main.java.application.quick_sort;
+package application.quick_sort;
 
 // Part of Cosmos by OpenGenus Foundation
 public class QuickSort {

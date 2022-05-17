@@ -1,8 +1,8 @@
-package test.java.application;
+package application;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.application.merge_sort.*;
+import application.merge_sort.*;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

@@ -1,4 +1,4 @@
-package main.java.application.merge_sort;
+package application.merge_sort;
 
 /* Java program for Merge Sort */
 // Part of Cosmos by OpenGenus Foundation

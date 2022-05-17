@@ -1,24 +1,24 @@
-package main.java.application;
+package application;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import main.java.application.bead_sort.BeadSort;
-import main.java.application.bubble_sort.BubbleSort;
-import main.java.application.circle_sort.CircleSort;
-import main.java.application.cocktail_sort.CocktailSort;
-import main.java.application.cycle_sort.CycleSort;
-import main.java.application.gnome_sort.GnomeSort;
-import main.java.application.heap_sort.HeapSort;
-import main.java.application.insertion_sort.InsertionSort;
-import main.java.application.merge_sort.MergeSort;
-import main.java.application.pigeonhole_sort.PigeonHoleSort;
-import main.java.application.quick_sort.QuickSort;
-import main.java.application.radix_sort.RadixSort;
-import main.java.application.selection_sort.SelectionSort;
-import main.java.application.shaker_sort.ShakerSort;
-import main.java.application.shell_sort.ShellSort;
-import main.java.application.slow_sort.SlowSort;
-import main.java.application.stooge_sort.StoogeSort;
+import application.bead_sort.BeadSort;
+import application.bubble_sort.BubbleSort;
+import application.circle_sort.CircleSort;
+import application.cocktail_sort.CocktailSort;
+import application.cycle_sort.CycleSort;
+import application.gnome_sort.GnomeSort;
+import application.heap_sort.HeapSort;
+import application.insertion_sort.InsertionSort;
+import application.merge_sort.MergeSort;
+import application.pigeonhole_sort.PigeonHoleSort;
+import application.quick_sort.QuickSort;
+import application.radix_sort.RadixSort;
+import application.selection_sort.SelectionSort;
+import application.shaker_sort.ShakerSort;
+import application.shell_sort.ShellSort;
+import application.slow_sort.SlowSort;
+import application.stooge_sort.StoogeSort;
 
 public class Main {
 

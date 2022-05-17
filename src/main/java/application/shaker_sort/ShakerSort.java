@@ -1,4 +1,4 @@
-package main.java.application.shaker_sort;
+package application.shaker_sort;
 
 /* Part of Cosmos by OpenGenus Foundation */
 

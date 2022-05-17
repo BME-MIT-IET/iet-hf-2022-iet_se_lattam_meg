@@ -1,4 +1,4 @@
-package main.java.application.cocktail_sort;
+package application.cocktail_sort;
 
 public class CocktailSort {
     /** A method to sort the array. The array will be sorted inplace. 

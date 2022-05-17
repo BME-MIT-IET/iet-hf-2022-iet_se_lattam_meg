@@ -1,4 +1,4 @@
-package main.java.application.slow_sort;
+package application.slow_sort;
 
 import java.util.Arrays;
 
