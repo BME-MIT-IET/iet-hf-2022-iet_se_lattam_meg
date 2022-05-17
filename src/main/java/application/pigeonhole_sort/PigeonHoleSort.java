@@ -7,6 +7,10 @@ import java.util.ArrayList;
 public class PigeonHoleSort {
 
 	public static void pigeonholeSort(int[] arr, int n) {
+		if (n == 0) {
+			return;
+		}
+
 		//initialize
 		int min = arr[0];
 		int max = arr[0];

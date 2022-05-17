@@ -19,6 +19,9 @@ public class RadixSort
    */
    public static void radixSort(int[] input)
    {
+       if (input.length == 0) {
+           return;
+       }
      List<Integer>[] buckets = new ArrayList[10];
      
      for(int i = 0; i < buckets.length; i++)//initialize buckets

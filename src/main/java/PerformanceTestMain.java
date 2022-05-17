@@ -2,6 +2,16 @@ import application.circle_sort.CircleSort;
 import application.cocktail_sort.CocktailSort;
 import application.cycle_sort.CycleSort;
 import application.gnome_sort.GnomeSort;
+import application.heap_sort.HeapSort;
+import application.insertion_sort.InsertionSort;
+import application.pigeonhole_sort.PigeonHoleSort;
+import application.quick_sort.QuickSort;
+import application.radix_sort.RadixSort;
+import application.selection_sort.SelectionSort;
+import application.shaker_sort.ShakerSort;
+import application.shell_sort.ShellSort;
+import application.slow_sort.SlowSort;
+import application.stooge_sort.StoogeSort;
 
 import java.util.*;
 
@@ -23,6 +33,16 @@ public class PerformanceTestMain {
         cocktailSortTest();
         cycleSortTest();
         gnomeSortTest();
+        heapSortTest();
+        insertionSortTest();
+        pigeonHoleSortTest();
+        quickSortTest();
+        radixSortTest();
+        selectionSortTest();
+        shakerSortTest();
+        shellSortTest();
+        // slowSortTest();
+        // stoogeSortTest();
     }
 
     private static void beadSortTest() {
@@ -33,7 +53,7 @@ public class PerformanceTestMain {
         long startTime = System.currentTimeMillis();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : beadSortInputs) {
-            beadSort(input);
+            input = beadSort(input);
         }
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
@@ -81,7 +101,7 @@ public class PerformanceTestMain {
         long startTime = System.currentTimeMillis();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : circleSortInputs) {
-            CircleSort.Sort(input);
+            input = CircleSort.Sort(input);
         }
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
@@ -169,6 +189,246 @@ public class PerformanceTestMain {
         tabCount--;
     }
 
+    private static void heapSortTest() {
+        System.out.println("Heap sort:");
+        tabCount++;
+        ArrayList<int[]> heapSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : heapSortInputs) {
+            HeapSort.sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Heap sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void insertionSortTest() {
+        System.out.println("Insertion sort:");
+        tabCount++;
+        ArrayList<int[]> insertionSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : insertionSortInputs) {
+            new InsertionSort().sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Insertion sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void pigeonHoleSortTest() {
+        System.out.println("Pigeon hole sort:");
+        tabCount++;
+        ArrayList<int[]> pigeonHoleSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : pigeonHoleSortInputs) {
+            PigeonHoleSort.pigeonholeSort(input, input.length);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Pigeon hole sort sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void quickSortTest() {
+        System.out.println("Quick sort:");
+        tabCount++;
+        ArrayList<int[]> quickSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : quickSortInputs) {
+            new QuickSort().sort(input, 0, input.length - 1);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Quick sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void radixSortTest() {
+        System.out.println("Radix sort:");
+        tabCount++;
+        ArrayList<int[]> radixSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : radixSortInputs) {
+            RadixSort.radixSort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Radix sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void selectionSortTest() {
+        System.out.println("Selection sort:");
+        tabCount++;
+        ArrayList<int[]> selectionSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : selectionSortInputs) {
+            SelectionSort.sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Selection sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void shakerSortTest() {
+        System.out.println("Shaker sort:");
+        tabCount++;
+        ArrayList<int[]> shakerSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : shakerSortInputs) {
+            ShakerSort.sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Shaker sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void shellSortTest() {
+        System.out.println("Shell sort:");
+        tabCount++;
+        ArrayList<int[]> shellSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : shellSortInputs) {
+            ShellSort.sort(input);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Shell sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void slowSortTest() {
+        System.out.println("Slow sort:");
+        tabCount++;
+        ArrayList<int[]> slowSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : slowSortInputs) {
+            SlowSort.slowSort(input, 0, input.length - 1);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Slow sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
+    private static void stoogeSortTest() {
+        System.out.println("Stooge sort:");
+        tabCount++;
+        ArrayList<int[]> stoogeSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
+        long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        for (int[] input : stoogeSortInputs) {
+            input = StoogeSort.stoogeSort(input, 0, input.length - 1);
+        }
+        long time = System.currentTimeMillis() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Stooge sort", time);
+        printTabs();
+        System.out.print("Time: ");
+        System.out.print(time);
+        System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
+        tabCount--;
+    }
+
     private static void printTabs() {
         for (int i = 0; i < tabCount; i++) {
             System.out.print("\t");
@@ -183,7 +443,7 @@ public class PerformanceTestMain {
             int size = random.nextInt(maxSize);
             int[] input = new int[size];
             for (int j = 0; j < size; j++) {
-                input[j] = random.nextInt(2000) - 1000;
+                input[j] = random.nextInt(1000);
             }
             inputs.add(input);
         }
