@@ -22,23 +22,20 @@ public class StepDefinitions {
             }
         }
         else {
-            this.input = null;
+            this.input = new int[] {};
         }
     }
 
     @When("it is sorted")
     public void it_is_sorted() {
-        if (input != null) {
-            bubbleSort(input);
-            actualAnswer = "";
-            for (int num : input) {
-                actualAnswer += num;
-                actualAnswer += ",";
-            }
-            actualAnswer = actualAnswer.substring(0, actualAnswer.length() - 1);
+        bubbleSort(input);
+        actualAnswer = "";
+        for (int num : input) {
+            actualAnswer += num;
+            actualAnswer += ",";
         }
-        else {
-            actualAnswer = "";
+        if (!actualAnswer.isEmpty()) {
+            actualAnswer = actualAnswer.substring(0, actualAnswer.length() - 1);
         }
     }
 
