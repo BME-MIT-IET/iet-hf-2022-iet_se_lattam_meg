@@ -2,9 +2,9 @@ Feature: Sorted
   Sorted algorithm works
 
   Scenario Outline: Sorted
-    Given Input is "<input>"
-    When It is sorted
-    Then Output should be "<output>"
+    Given input is "<input>"
+    When it is sorted
+    Then output should be "<output>"
 
     Examples:
       | input      | output    |

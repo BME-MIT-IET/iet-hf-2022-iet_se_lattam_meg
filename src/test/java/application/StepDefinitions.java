@@ -12,7 +12,7 @@ public class StepDefinitions {
 
     private int[] input;
 
-    @Given("Input is {string}")
+    @Given("input is {string}")
     public void input_is(String input) {
         String[] inputStrings = input.split(",");
         this.input = new int[inputStrings.length];
@@ -21,7 +21,7 @@ public class StepDefinitions {
         }
     }
 
-    @When("It is sorted")
+    @When("it is sorted")
     public void it_is_sorted() {
         bubbleSort(input);
         actualAnswer = "";
@@ -32,7 +32,7 @@ public class StepDefinitions {
         actualAnswer = actualAnswer.substring(0, actualAnswer.length() - 1);
     }
 
-    @Then("Output should be {string}")
+    @Then("output should be {string}")
     public String output_should_be(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
         return actualAnswer;
