@@ -11,12 +11,12 @@ import static application.bubble_sort.BubbleSort.bubbleSort;
 public class PerformanceTestMain {
 
     private static ArrayList<int[]> inputs;
-    private static HashMap<String, Long> runTimes = new HashMap<>();
+    private static HashMap<String, Long> times = new HashMap<>();
     private static int tabCount = 0;
 
 
     public static void main(String[] args) {
-        inputs = createInputs();
+        inputs = createInputs(10000, 1000);
         beadSortTest();
         bubbleSortTest();
         circleSortTest();
@@ -29,16 +29,23 @@ public class PerformanceTestMain {
         System.out.println("Bead sort:");
         tabCount++;
         ArrayList<int[]> beadSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : beadSortInputs) {
             beadSort(input);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Bead sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Bead sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
     }
 
@@ -46,16 +53,23 @@ public class PerformanceTestMain {
         System.out.println("Bubble sort:");
         tabCount++;
         ArrayList<int[]> bubbleSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : bubbleSortInputs) {
             bubbleSort(input);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Bubble sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Bubble sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
     }
 
@@ -63,16 +77,23 @@ public class PerformanceTestMain {
         System.out.println("Circle sort:");
         tabCount++;
         ArrayList<int[]> circleSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : circleSortInputs) {
             CircleSort.Sort(input);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Circle sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Circle sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
     }
 
@@ -80,16 +101,23 @@ public class PerformanceTestMain {
         System.out.println("Cocktail sort:");
         tabCount++;
         ArrayList<int[]> cocktailSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : cocktailSortInputs) {
             new CocktailSort().sort(input);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Cocktail sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Cocktail sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
     }
 
@@ -97,16 +125,23 @@ public class PerformanceTestMain {
         System.out.println("Cycle sort:");
         tabCount++;
         ArrayList<int[]> cycleSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : cycleSortInputs) {
             CycleSort.cycleSort(input, input.length);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Cycle sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Cycle sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
     }
 
@@ -114,55 +149,30 @@ public class PerformanceTestMain {
         System.out.println("Gnome sort:");
         tabCount++;
         ArrayList<int[]> gnomeSortInputs = copyInputs(inputs);
+        Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : gnomeSortInputs) {
             GnomeSort.gnomeSort(input);
         }
         long time = System.currentTimeMillis() - startTime;
-        runTimes.put("Gnome sort", time);
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        times.put("Gnome sort", time);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
+        printTabs();
+        System.out.print("Memory: ");
+        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.println(" MB");
         tabCount--;
-    }
-
-    private static void printInput(int[] input) {
-        printTabs();
-        System.out.print("Input: ");
-        printNumber(input);
-    }
-
-    private static void printResult(int[] result) {
-        printTabs();
-        System.out.print("Result: ");
-        printNumber(result);
-    }
-
-    private static void printNumber(int[] numbers) {
-        String outputString = "[";
-        for (int number : numbers) {
-            outputString += number + ", ";
-        }
-        if (outputString.length() > 1) {
-            outputString = outputString.substring(0, outputString.length() - 2);
-        }
-        outputString += "]";
-        System.out.println(outputString);
     }
 
     private static void printTabs() {
         for (int i = 0; i < tabCount; i++) {
             System.out.print("\t");
         }
-    }
-
-
-    private static ArrayList<int[]> createInputs() {
-        return createInputs(10000, 1000);
-    }
-    private static ArrayList<int[]> createInputs(int inputCount) {
-        return createInputs(inputCount, 1000);
     }
 
     private static ArrayList<int[]> createInputs(int inputCount, int maxSize) {
@@ -184,9 +194,7 @@ public class PerformanceTestMain {
         ArrayList<int[]> inputsCopy = new ArrayList<>();
         for (int[] input : inputs) {
             int[] inputCopy = new int[input.length];
-            for (int j = 0; j < input.length; j++) {
-                inputCopy[j] = input[j];
-            }
+            System.arraycopy(input, 0, inputCopy, 0, input.length);
             inputsCopy.add(inputCopy);
         }
         return inputsCopy;
