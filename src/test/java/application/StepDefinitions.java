@@ -14,22 +14,32 @@ public class StepDefinitions {
 
     @Given("input is {string}")
     public void input_is(String input) {
-        String[] inputStrings = input.split(",");
-        this.input = new int[inputStrings.length];
-        for (int i = 0; i < inputStrings.length; i++) {
-            this.input[i] = Integer.parseInt(inputStrings[i]);
+        if (!input.isEmpty()) {
+            String[] inputStrings = input.split(",");
+            this.input = new int[inputStrings.length];
+            for (int i = 0; i < inputStrings.length; i++) {
+                this.input[i] = Integer.parseInt(inputStrings[i]);
+            }
+        }
+        else {
+            this.input = null;
         }
     }
 
     @When("it is sorted")
     public void it_is_sorted() {
-        bubbleSort(input);
-        actualAnswer = "";
-        for (int num : input) {
-            actualAnswer += num;
-            actualAnswer += ",";
+        if (input != null) {
+            bubbleSort(input);
+            actualAnswer = "";
+            for (int num : input) {
+                actualAnswer += num;
+                actualAnswer += ",";
+            }
+            actualAnswer = actualAnswer.substring(0, actualAnswer.length() - 1);
         }
-        actualAnswer = actualAnswer.substring(0, actualAnswer.length() - 1);
+        else {
+            actualAnswer = "";
+        }
     }
 
     @Then("output should be {string}")
