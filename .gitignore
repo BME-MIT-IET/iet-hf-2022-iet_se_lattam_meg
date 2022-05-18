@@ -1,3 +1,8 @@
+
+target
+bin
+.classpath
+.project
 # Compiled class file
 *.class
 
@@ -10,4 +15,4 @@
 */.idea/jarRepositories.xml
 */target
 
-target
+
