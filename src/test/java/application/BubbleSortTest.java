@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class SortTest {
+public class BubbleSortTest {
     int[] arrayShort, arrayLong, arrayNegative, arrayEmpty;
 
     @BeforeEach
@@ -20,15 +20,26 @@ public class SortTest {
     }
 
     @Test
-    public void Test_Bubble_Sort(){
+    public void Test_Short_Array(){
         BubbleSort.bubbleSort(arrayShort);
-        BubbleSort.bubbleSort(arrayLong);
-        BubbleSort.bubbleSort(arrayNegative);
-        BubbleSort.bubbleSort(arrayEmpty);
-
         assertArrayEquals(new int[]{2, 5, 6, 8, 11}, arrayShort);
+    }
+
+    @Test
+    public void Test_Long_Array(){
+        BubbleSort.bubbleSort(arrayLong);
         assertArrayEquals(new int[]{2, 2, 4, 5, 6, 8, 11, 44, 69, 215, 312, 420, 645, 1154}, arrayLong);
+    }
+
+    @Test
+    public void Test_Negative_Array(){
+        BubbleSort.bubbleSort(arrayNegative);
         assertArrayEquals(new int[]{-35, -10, -4, -4, -2, -1, 0, 5}, arrayNegative);
+    }
+
+    @Test
+    public void Test_Empty_Array(){
+        BubbleSort.bubbleSort(arrayEmpty);
         assertArrayEquals(new int[]{}, arrayEmpty);
     }
 }
