@@ -14,6 +14,7 @@ import application.slow_sort.SlowSort;
 import application.stooge_sort.StoogeSort;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static application.bead_sort.BeadSort.beadSort;
 import static application.bubble_sort.BubbleSort.bubbleSort;
@@ -22,6 +23,7 @@ public class PerformanceTestMain {
 
     private static ArrayList<int[]> inputs;
     private static HashMap<String, Long> times = new HashMap<>();
+    private static HashMap<String, Long> memories = new HashMap<>();
     private static int tabCount = 0;
 
 
@@ -43,6 +45,40 @@ public class PerformanceTestMain {
         shellSortTest();
         // slowSortTest();
         // stoogeSortTest();
+        printTopSpeed();
+        printTopMemory();
+    }
+
+    private static void printTopSpeed() {
+        ArrayList<Map.Entry<String, Long>> sorted = sortMap(times);
+        System.out.println("TOP 5 (Time)");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print(i);
+            System.out.print(". ");
+            System.out.print(sorted.get(i-1).getKey());
+            System.out.print(" (");
+            System.out.print(sorted.get(i-1).getValue());
+            System.out.println(" ms)");
+        }
+    }
+
+    private static void printTopMemory() {
+        ArrayList<Map.Entry<String, Long>> sorted = sortMap(memories);
+        System.out.println("TOP 5 (Memory)");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print(i);
+            System.out.print(". ");
+            System.out.print(sorted.get(i-1).getKey());
+            System.out.print(" (");
+            System.out.print(sorted.get(i-1).getValue());
+            System.out.println(" MB)");
+        }
+    }
+
+    public static ArrayList<Map.Entry<String, Long>> sortMap(HashMap<String, Long> map) {
+        ArrayList<Map.Entry<String, Long>> entries = new ArrayList<>(map.entrySet());
+        Collections.sort(entries, Comparator.comparing(Map.Entry::getValue));
+        return entries;
     }
 
     private static void beadSortTest() {
@@ -58,13 +94,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Bead sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Bead sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -82,13 +120,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Bubble sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Bubble sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -106,13 +146,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Circle sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Circle sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -130,13 +172,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Cocktail sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Cocktail sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -154,13 +198,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Cycle sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Cycle sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -178,13 +224,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Gnome sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Gnome sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -202,13 +250,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Heap sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Heap sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -226,13 +276,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Insertion sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Insertion sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -249,14 +301,16 @@ public class PerformanceTestMain {
         }
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        times.put("Pigeon hole sort sort", time);
+        times.put("Pigeon hole sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Pigeon hole sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -274,13 +328,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Quick sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Quick sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -298,13 +354,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Radix sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Radix sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -322,13 +380,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Selection sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Selection sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -346,13 +406,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Shaker sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Shaker sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -370,13 +432,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Shell sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Shell sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -394,13 +458,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Slow sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Slow sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
@@ -418,13 +484,15 @@ public class PerformanceTestMain {
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         times.put("Stooge sort", time);
+        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
+        memories.put("Stooge sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
         System.out.println(" ms");
         printTabs();
         System.out.print("Memory: ");
-        System.out.print((usedMemoryAfter - usedMemoryBefore) / 1000000);
+        System.out.print(memory);
         System.out.println(" MB");
         tabCount--;
     }
