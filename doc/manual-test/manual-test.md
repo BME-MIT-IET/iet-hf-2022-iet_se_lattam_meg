@@ -6,5 +6,9 @@ A projektet szerettük volna manuálisan is tesztelni, amihez szükség van egy 
 ## Tesztelés
 A tesztelés során az elkészített konzolos felület használatával különböző algoritmusokkal hajtottunk végre rendezéseket különböző inputokon, majd ellenőriztük ezek helyességét.
 
+A tesztelés folyamatára egy példa:
+
+![input](images/input.png) ![output](images/output.png)
+
 ## Eredmény
 A tesztelés során megállapítottuk, hogy az algoritmusok helyesen működnek, bár egyes algoritmusok az üres tömböket nem kezelték jól, amelyket egy másik teszt során javítottunk, mert ez párhuzamosan derült ki.
