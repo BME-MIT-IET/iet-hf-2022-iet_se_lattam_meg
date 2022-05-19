@@ -8,21 +8,21 @@ public class CircleSort
 {
     public static void main(String[] args)
     {
-        int[] sortedArray = Sort(new int[]{2, 14, 4, 6, 8, 1, 5, 3, 7, 11, 0, 13, 20, -1});
+        int[] sortedArray = sort(new int[]{2, 14, 4, 6, 8, 1, 5, 3, 7, 11, 0, 13, 20, -1});
         System.out.println(String.join(", ", Arrays.toString(sortedArray)));
     }
 
-    public static int[] Sort(int[] array)
+    public static int[] sort(int[] array)
     {
         if (array.length > 0)
         {
-            while (Sort(array, 0, array.length - 1, 0) != 0);
+            while (sort(array, 0, array.length - 1, 0) != 0);
         }
 
         return array;
     }
 
-    private static int Sort(int[] array, int lo, int hi, int numberOfSwaps)
+    private static int sort(int[] array, int lo, int hi, int numberOfSwaps)
     {
         if (lo == hi)
         {
@@ -37,7 +37,7 @@ public class CircleSort
         {
             if (array[lo] > array[hi])
             {
-                Swap(array, lo, hi);
+                swap(array, lo, hi);
                 numberOfSwaps++;
             }
             lo++;
@@ -46,17 +46,17 @@ public class CircleSort
 
         if (lo == hi && array[lo] > array[hi + 1])
         {
-            Swap(array, lo, hi + 1);
+            swap(array, lo, hi + 1);
             numberOfSwaps++;
         }
 
-        numberOfSwaps = Sort(array, low, low + mid, numberOfSwaps);
-        numberOfSwaps = Sort(array, low + mid + 1, high, numberOfSwaps);
+        numberOfSwaps = sort(array, low, low + mid, numberOfSwaps);
+        numberOfSwaps = sort(array, low + mid + 1, high, numberOfSwaps);
 
         return numberOfSwaps;
     }
 
-    private static void Swap(int[] array, int index1, int index2)
+    private static void swap(int[] array, int index1, int index2)
     {
         int tmp = array[index1];
         array[index1] = array[index2];

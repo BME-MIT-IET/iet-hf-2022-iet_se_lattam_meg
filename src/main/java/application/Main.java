@@ -1,4 +1,5 @@
 package application;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +11,6 @@ import application.cycle_sort.CycleSort;
 import application.gnome_sort.GnomeSort;
 import application.heap_sort.HeapSort;
 import application.insertion_sort.InsertionSort;
-import application.merge_sort.MergeSort;
 import application.pigeonhole_sort.PigeonHoleSort;
 import application.quick_sort.QuickSort;
 import application.radix_sort.RadixSort;
@@ -40,7 +40,7 @@ public class Main {
 				BubbleSort.bubbleSort(nums);
 				break;
 			case 3:
-				nums = CircleSort.Sort(nums);
+				nums = CircleSort.sort(nums);
 				break;
 			case 4:
 				CocktailSort cs = new CocktailSort();
@@ -79,10 +79,10 @@ public class Main {
 				ShellSort.sort(nums);
 				break;
 			case 15:
-				SlowSort.slowSort(nums, 0, nums.length -1);
+				SlowSort.slowSort(nums, 0, nums.length - 1);
 				break;
 			case 16:
-				nums = StoogeSort.stoogeSort(nums, 0, nums.length-1);
+				nums = StoogeSort.stoogeSort(nums, 0, nums.length - 1);
 				break;
 			}
 			printNumbers(nums);
@@ -129,8 +129,7 @@ public class Main {
 		String s = in.nextLine();
 
 		try {
-			Integer number = Integer.parseInt(s);
-			return number;
+			return Integer.parseInt(s);
 		} catch (NumberFormatException nfe) {
 			System.out.println("Please add a number\n");
 			throw nfe;
@@ -139,7 +138,7 @@ public class Main {
 	}
 
 	private static int[] readNumbers() {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<>();
 		Scanner in = new Scanner(System.in);
 
 		while (in.hasNextLine()) {
@@ -155,6 +154,6 @@ public class Main {
 			}
 		}
 
-        return list.stream().mapToInt(i -> i).toArray();
+		return list.stream().mapToInt(i -> i).toArray();
 	}
 }
