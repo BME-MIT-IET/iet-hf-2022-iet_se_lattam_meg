@@ -33,7 +33,7 @@ public class PerformanceTestMain {
         inputs = createInputs(10000, 1000);
         testSortingAlgorithm(BeadSort::beadSort, "Bead");
         testSortingAlgorithm(BubbleSort::bubbleSort, "Bubble");
-        testSortingAlgorithm(CircleSort::Sort, "Circle");
+        testSortingAlgorithm(CircleSort::sort, "Circle");
         testSortingAlgorithm(input -> new CocktailSort().sort(input), "Cocktail");
         testSortingAlgorithm(input -> CycleSort.cycleSort(input, input.length), "Cycle");
         testSortingAlgorithm(GnomeSort::gnomeSort, "Gnome");

@@ -7,10 +7,10 @@ import application.merge_sort.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
-public class MergeSortTest {
+class MergeSortTest {
     
     @Test
-    public void Test_Sort_EmptyArray(){
+    void Test_Sort_EmptyArray(){
     	int[] arrayEmpty = new int[] {};
     	
     	MergeSort ms = new MergeSort();
@@ -20,7 +20,7 @@ public class MergeSortTest {
     }
     
     @Test
-    public void Test_Sort_ArrayInOrder(){
+    void Test_Sort_ArrayInOrder(){
     	int[] arrayInOrder = new int[] {1,2,3,4,10,20};
     	
     	MergeSort ms = new MergeSort();
@@ -30,7 +30,7 @@ public class MergeSortTest {
     }
     
     @Test
-    public void Test_Sort_ArrayReversed(){
+    void Test_Sort_ArrayReversed(){
     	int[] arrayReversed = new int[] {50,45,30,10,2};
     	
     	MergeSort ms = new MergeSort();
@@ -40,7 +40,7 @@ public class MergeSortTest {
     }
     
     @Test
-    public void Test_Sort_ArrayWithNegativeNumbers(){
+    void Test_Sort_ArrayWithNegativeNumbers(){
     	int[] arrayWithNegativeNumbers = new int[] {3,-8,2};
     	
     	MergeSort ms = new MergeSort();
@@ -50,7 +50,7 @@ public class MergeSortTest {
     }
     
     @Test
-    public void Test_Sort_ArrayWithZero(){
+    void Test_Sort_ArrayWithZero(){
     	int[] arrayWithZero = new int[] {4,0,2,10};
     	
     	MergeSort ms = new MergeSort();

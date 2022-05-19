@@ -2,53 +2,48 @@ package application.stooge_sort;
 
 //This is a java program to sort numbers using Stooge Sort
 import java.util.Random;
- 
-public class StoogeSort 
-{
- 
-    public static int N = 20;
-    public static int[] sequence = new int[N];
- 
-    public static int[] stoogeSort(int[] L, int i, int j) 
-    {
-        if (j == -1) {
-            return L;
-        }
-        if (L[j] < L[i]) 
-        {
-            int swap = L[i];
-            L[i] = L[j];
-            L[j] = swap;
-        }
-        if ((j - i + 1) >= 3) 
-        {
-            int t = (j - i + 1) / 3;
-            stoogeSort(L, i, j - t);
-            stoogeSort(L, i + t, j);
-            stoogeSort(L, i, j - t);
-        }
-        return L;
-    }
- 
-    public static void printSequence(int[] sorted_sequence) 
-    {
-        for (int i = 0; i < sorted_sequence.length; i++)
-            System.out.print(sorted_sequence[i] + " ");
-    }
- 
-    public static void main(String[] args) 
-    {
-        Random random = new Random();
-        System.out
-                .println("Sorting of randomly generated numbers using STOOGE SORT");
- 
-        for (int i = 0; i < N; i++)
-            sequence[i] = Math.abs(random.nextInt(1000));
- 
-        System.out.println("\nOriginal Sequence: ");
-        printSequence(sequence);
- 
-        System.out.println("\nSorted Sequence: ");
-        printSequence(stoogeSort(sequence, 0, sequence.length - 1));
-    }
+
+public class StoogeSort {
+
+	private static final int ARR_LENGTH = 20;
+	private static final int[] SEQUENCE = new int[ARR_LENGTH];
+
+	public static int[] stoogeSort(int[] l, int i, int j) {
+		if (j == -1) {
+			return l;
+		}
+		if (l[j] < l[i]) {
+			int swap = l[i];
+			l[i] = l[j];
+			l[j] = swap;
+		}
+		if ((j - i + 1) >= 3) {
+			int t = (j - i + 1) / 3;
+			stoogeSort(l, i, j - t);
+			stoogeSort(l, i + t, j);
+			stoogeSort(l, i, j - t);
+		}
+		return l;
+	}
+
+	public static void printSequence(int[] sortedSequence) {
+		for (int i = 0; i < sortedSequence.length; i++) {
+			System.out.print(sortedSequence[i] + " ");
+		}
+	}
+
+	public static void main(String[] args) {
+		Random random = new Random();
+		System.out.println("Sorting of randomly generated numbers using STOOGE SORT");
+
+		for (int i = 0; i < ARR_LENGTH; i++) {
+			SEQUENCE[i] = Math.abs(random.nextInt(1000));
+		}
+
+		System.out.println("\nOriginal Sequence: ");
+		printSequence(SEQUENCE);
+
+		System.out.println("\nSorted Sequence: ");
+		printSequence(stoogeSort(SEQUENCE, 0, SEQUENCE.length - 1));
+	}
 }

@@ -1,11 +1,11 @@
 package application.heap_sort;
 
-import java.util.*;
+import java.util.Arrays;
+
 /*
  * Part of Cosmos by OpenGenus Foundation
 */
 public class HeapSort {
-    
     public static void main(String[] args) {
         // array used for testing
         int[] a = {5, 11, 1234, 2, 6};
