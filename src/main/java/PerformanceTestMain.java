@@ -43,8 +43,6 @@ public class PerformanceTestMain {
         selectionSortTest();
         shakerSortTest();
         shellSortTest();
-        // slowSortTest();
-        // stoogeSortTest();
         printTopSpeed();
         printTopMemory();
     }
@@ -434,58 +432,6 @@ public class PerformanceTestMain {
         times.put("Shell sort", time);
         long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
         memories.put("Shell sort", memory);
-        printTabs();
-        System.out.print("Time: ");
-        System.out.print(time);
-        System.out.println(" ms");
-        printTabs();
-        System.out.print("Memory: ");
-        System.out.print(memory);
-        System.out.println(" MB");
-        tabCount--;
-    }
-
-    private static void slowSortTest() {
-        System.out.println("Slow sort:");
-        tabCount++;
-        ArrayList<int[]> slowSortInputs = copyInputs(inputs);
-        Runtime runtime = Runtime.getRuntime();
-        long startTime = System.currentTimeMillis();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        for (int[] input : slowSortInputs) {
-            SlowSort.slowSort(input, 0, input.length - 1);
-        }
-        long time = System.currentTimeMillis() - startTime;
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        times.put("Slow sort", time);
-        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
-        memories.put("Slow sort", memory);
-        printTabs();
-        System.out.print("Time: ");
-        System.out.print(time);
-        System.out.println(" ms");
-        printTabs();
-        System.out.print("Memory: ");
-        System.out.print(memory);
-        System.out.println(" MB");
-        tabCount--;
-    }
-
-    private static void stoogeSortTest() {
-        System.out.println("Stooge sort:");
-        tabCount++;
-        ArrayList<int[]> stoogeSortInputs = copyInputs(inputs);
-        Runtime runtime = Runtime.getRuntime();
-        long startTime = System.currentTimeMillis();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        for (int[] input : stoogeSortInputs) {
-            input = StoogeSort.stoogeSort(input, 0, input.length - 1);
-        }
-        long time = System.currentTimeMillis() - startTime;
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        times.put("Stooge sort", time);
-        long memory = (usedMemoryAfter - usedMemoryBefore) / 1000000;
-        memories.put("Stooge sort", memory);
         printTabs();
         System.out.print("Time: ");
         System.out.print(time);
