@@ -1,3 +1,5 @@
+package application.performance;
+
 import application.bead_sort.BeadSort;
 import application.bubble_sort.BubbleSort;
 import application.circle_sort.CircleSort;
