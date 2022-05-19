@@ -32,6 +32,9 @@ public class HeapSort {
         }
     }
 
+    //arr -> array
+    //n -> size of the heap
+    //i -> index of root element
     public static void heapify(int arr[], int n, int i)
     {
         int largest = i;
