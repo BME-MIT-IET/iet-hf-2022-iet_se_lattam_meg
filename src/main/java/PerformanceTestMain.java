@@ -17,6 +17,7 @@ import static application.bead_sort.BeadSort.beadSort;
 import static application.bubble_sort.BubbleSort.bubbleSort;
 
 public class PerformanceTestMain {
+    private static Random random = new Random();
 
     private static ArrayList<int[]> inputs;
     private static final HashMap<String, Long> times = new HashMap<>();
@@ -446,8 +447,6 @@ public class PerformanceTestMain {
     }
 
     private static ArrayList<int[]> createInputs(int inputCount, int maxSize) {
-        Random random = new Random();
-
         ArrayList<int[]> inputs = new ArrayList<>();
         for (int i = 0; i < inputCount; i++) {
             int size = random.nextInt(maxSize);
