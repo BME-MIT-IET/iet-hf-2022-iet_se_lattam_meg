@@ -11,6 +11,9 @@ public class StoogeSort
  
     public static int[] stoogeSort(int[] L, int i, int j) 
     {
+        if (j == -1) {
+            return L;
+        }
         if (L[j] < L[i]) 
         {
             int swap = L[i];

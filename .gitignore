@@ -6,6 +6,7 @@ bin
 # Compiled class file
 *.class
 
+.idea/
 *.iml
 */.idea/libraries/Gradle*.xml
 */.idea/libraries/Maven*.xml
