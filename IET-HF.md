@@ -1,0 +1,2 @@
+Feladatnak a Cosmos nevű projektet választottuk, amiben rengeteg előre megírt függvényt találunk különböző célokra. Vannak benne például gráfokkal kapcsolatos algoritmusok, útvonaltervezők, stb. Mi ezeknek csak egy kis részhalmazával, a rendező algoritmusokkal foglalkoztunk.
+Mivel a projekt egy függvénykönyvtár, a benne lévő állományok egymástól teljesen függetlenek. Azért hogy ebből egy egységes projektet csináljunk, egy saját Main osztályt készítettünk, ami összeköti ezeket a fájlokat. Ehhez egy parancssori konzol tartozik. 
