@@ -10,11 +10,8 @@ import application.radix_sort.RadixSort;
 import application.selection_sort.SelectionSort;
 import application.shaker_sort.ShakerSort;
 import application.shell_sort.ShellSort;
-import application.slow_sort.SlowSort;
-import application.stooge_sort.StoogeSort;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static application.bead_sort.BeadSort.beadSort;
 import static application.bubble_sort.BubbleSort.bubbleSort;
@@ -22,10 +19,9 @@ import static application.bubble_sort.BubbleSort.bubbleSort;
 public class PerformanceTestMain {
 
     private static ArrayList<int[]> inputs;
-    private static HashMap<String, Long> times = new HashMap<>();
-    private static HashMap<String, Long> memories = new HashMap<>();
+    private static final HashMap<String, Long> times = new HashMap<>();
+    private static final HashMap<String, Long> memories = new HashMap<>();
     private static int tabCount = 0;
-
 
     public static void main(String[] args) {
         inputs = createInputs(10000, 1000);
@@ -75,7 +71,7 @@ public class PerformanceTestMain {
 
     public static ArrayList<Map.Entry<String, Long>> sortMap(HashMap<String, Long> map) {
         ArrayList<Map.Entry<String, Long>> entries = new ArrayList<>(map.entrySet());
-        Collections.sort(entries, Comparator.comparing(Map.Entry::getValue));
+        entries.sort(Map.Entry.comparingByValue());
         return entries;
     }
 
@@ -87,7 +83,7 @@ public class PerformanceTestMain {
         long startTime = System.currentTimeMillis();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : beadSortInputs) {
-            input = beadSort(input);
+            beadSort(input);
         }
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
@@ -139,7 +135,7 @@ public class PerformanceTestMain {
         long startTime = System.currentTimeMillis();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : circleSortInputs) {
-            input = CircleSort.Sort(input);
+            CircleSort.Sort(input);
         }
         long time = System.currentTimeMillis() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
