@@ -85,6 +85,7 @@ public class PerformanceTestMain {
         ArrayList<int[]> inputsCopy = copyInputs(inputs);
         Runtime runtime = Runtime.getRuntime();
         long startTime = System.currentTimeMillis();
+        System.gc();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
         for (int[] input : inputsCopy) {
             algorithm.sort(input);
