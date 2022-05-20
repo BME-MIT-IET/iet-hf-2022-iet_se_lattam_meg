@@ -1,0 +1,5 @@
+A projekt kódminőségének manuális átvizsgálása után segítségéül hívtunk egy statikus analízis eszközt is (SonarCloud) ami a kódról tippeket adott, hogy adott résznél mi a jobb megoldás. 
+
+Az eszköz jól leírja az adott probléma okát, megoldását, példákat is bemutatva. Miután összekötöttük a GitHub-bal a SonarCloud-ot, olyan formában jelenítette meg a projekt felépítését, hibáit, megoldási lehetőségeit ami az üzleti életben is jól mutatna a projekt átadásakor. Még a nem az IT világából érkező vevő is könnyedén megbizonyosodhat, hogy a kód minősége olyan amit elvárt, nem tartalmaz kezdő hibákat, biztonsági kockázatokat.
+
+Az eszköz többnyire kezdőhibákat tárt fel, mint például nem követése a camelCase konvenciót, osztályok neveinek nagybetűvel kezdése, az osztály elején felesleges importok. Talált 2 potenciális biztonsági kockázatot is, de a projekt nem tartalmaz/kezel szenzitív adatokat, ezért ezek szerencsére nem bizonyultak valós biztonsági kockázatoknak.
